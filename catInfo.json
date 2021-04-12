@@ -1,0 +1,23 @@
+{
+    "name": "cat",
+    "UID": 0,
+    "currentWeightLBS": 0,
+    "targetWeightLBS": 10,
+    "feedingTimes": [
+        {
+            "hour": 15,
+            "minute": 0,
+            "second": 0
+        },
+        {
+            "hour": 11,
+            "minute": 0,
+            "second": 0
+        },
+        {
+            "hour": 18,
+            "minute": 59,
+            "second": 0
+        }
+    ]
+}
