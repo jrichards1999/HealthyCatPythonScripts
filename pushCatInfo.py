@@ -37,7 +37,6 @@ dayOfYear = int(now.strftime('%j'))
 hour = now.hour
 minute = now.minute
 month = now.strftime("%B").upper()
-print(month)
 monthValue = now.month
 nano = 0
 second = now.second
