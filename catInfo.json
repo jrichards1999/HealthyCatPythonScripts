@@ -1,7 +1,7 @@
 {
-    "name": "cat",
+    "name": "Cat",
     "UID": 0,
-    "currentWeightLBS": 0,
+    "currentWeightLBS": 5.542,
     "targetWeightLBS": 10,
     "feedingTimes": [
         {

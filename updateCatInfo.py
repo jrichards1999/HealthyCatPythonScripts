@@ -31,7 +31,12 @@ db = firebase.database()
 
 name = db.child("usersData").child("password").child("name").get().val()
 UID = db.child("usersData").child("password").child("UID").get().val()
-currentWeightLBS = db.child("usersData").child("password").child("currentWeightLBS").get().val()
+
+#Most recent weight is already stored in the json file, not on firebase
+with open('catInfo.json') as json_file:
+    data = json.load(json_file)
+currentWeightLBS = data['currentWeightLBS']
+
 targetWeightLBS = db.child("usersData").child("password").child("targetWeightLBS").get().val()
 incomingFeedingTimes = db.child("usersData").child("password").child("feedingTimes").get().val()
 
