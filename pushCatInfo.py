@@ -19,9 +19,13 @@ with open('catInfo.json') as json_file:
     data = json.load(json_file)
 
 newCurrentWeight = data['currentWeightLBS']
+newFeedingSize = data['feedingSize']
 
 #Update Current Weight
 db.child("usersData").child(modelPassword).update({"currentWeightLBS": newCurrentWeight})
+
+#Update feeding size
+db.child("usersData").child(modelPassword).update({"feedingSize": newFeedingSize})
 
 #update list of historical weight data
 currentHistWeightData = db.child("usersData").child("password").child("historicalWeightData").get().val()

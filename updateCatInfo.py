@@ -4,12 +4,13 @@ import json
 from json import JSONEncoder
 
 class Cat:
-    def __init__(self, name, UID, currentWeightLBS, targetWeightLBS, feedingTimes,):
+    def __init__(self, name, UID, currentWeightLBS, targetWeightLBS, feedingTimes, feedingSize,):
         self.name = name
         self.UID = UID
         self.currentWeightLBS = currentWeightLBS
         self.targetWeightLBS = targetWeightLBS
         self.feedingTimes = feedingTimes
+        self.feedingSize = feedingSize
 
 # subclass JSONEncoder
 class CatEncoder(JSONEncoder):
@@ -38,6 +39,7 @@ with open('catInfo.json') as json_file:
 currentWeightLBS = data['currentWeightLBS']
 
 targetWeightLBS = db.child("usersData").child("password").child("targetWeightLBS").get().val()
+feedingSize = db.child("usersData").child("password").child("feedingSize").get().val()
 incomingFeedingTimes = db.child("usersData").child("password").child("feedingTimes").get().val()
 
 feedingTimes = []
@@ -48,7 +50,7 @@ for i in range(len(incomingFeedingTimes)):
     time = datetime.time(hour, minute, second)
     feedingTimes.append(time)
 
-cat = Cat(name, UID, currentWeightLBS, targetWeightLBS, feedingTimes)
+cat = Cat(name, UID, currentWeightLBS, targetWeightLBS, feedingTimes, feedingSize)
 
 catJSONData = json.dumps(cat, indent=4, cls=CatEncoder)
 json_file = open("catInfo.json", "w")
